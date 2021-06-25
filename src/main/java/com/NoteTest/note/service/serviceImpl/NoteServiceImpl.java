@@ -8,7 +8,6 @@ import com.NoteTest.note.service.NoteService;
 import com.NoteTest.note.util.NoteDateComparator;
 import com.NoteTest.note.util.NoteHashTagSorter;
 import org.springframework.stereotype.Service;
-import java.util.Date;
 import java.util.List;
 import java.util.Set;
 

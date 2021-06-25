@@ -4,7 +4,6 @@ import com.NoteTest.note.Entity.HashTagEntity;
 import com.NoteTest.note.Entity.dto.NoteDTO;
 import com.NoteTest.note.service.NoteService;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Set;
 
@@ -21,7 +20,7 @@ public class NoteController {
     public void addNote(
                     @RequestParam(value = "title") String title,
                     @RequestParam(value = "text") String text,
-                    @RequestParam(value = "tags") Set<HashTagEntity> tags){
+                    @RequestBody Set<HashTagEntity> tags){
         noteService.addNote(title, text, tags);
     }
 
@@ -30,7 +29,7 @@ public class NoteController {
                     @RequestParam(value = "noteId") Long noteId,
                     @RequestParam(value = "title") String title,
                     @RequestParam(value = "text") String text,
-                    @RequestParam(value = "tags") Set<HashTagEntity> tags){
+                    @RequestBody Set<HashTagEntity> tags){
         noteService.updateNote(noteId,title,text, tags);
     }
 
@@ -51,7 +50,7 @@ public class NoteController {
     }
 
     @GetMapping("/get/sorted/tags")
-    public List<NoteDTO> getSortedNotesByTags(@RequestParam(value = "tagIds") Set<Long> tagIds){
+    public List<NoteDTO> getSortedNotesByTags(@RequestBody Set<Long> tagIds){
         return NoteDTO.noteListToNoteDtoList(noteService.getNotesSortByTags(tagIds));
     }
 
