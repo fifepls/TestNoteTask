@@ -28,8 +28,8 @@ public class NoteServiceImpl implements NoteService {
     }
 
     @Override
-    public void addNote(String noteTitle, String noteText, Set<HashTagEntity> tags) {
-        noteDao.addNote(noteTitle,noteText, new Date(),tags);
+    public NoteEntity addNote(String noteTitle, String noteText, Set<HashTagEntity> tags) {
+        return noteDao.addNote(noteTitle,noteText,tags);
     }
 
     @Override
@@ -62,8 +62,7 @@ public class NoteServiceImpl implements NoteService {
 
     @Override
     public List<NoteEntity> getNotes() {
-        List<NoteEntity> notes = noteDao.getNotes();
-        return notes;
+        return noteDao.getNotes();
     }
 
     @Override

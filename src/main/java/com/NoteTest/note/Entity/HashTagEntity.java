@@ -24,6 +24,12 @@ public class HashTagEntity {
     public HashTagEntity() {
     }
 
+    public HashTagEntity(Long id, String hashTagName, Set<NoteEntity> notes) {
+        this.id = id;
+        this.hashTagName = hashTagName;
+        Notes = notes;
+    }
+
     public HashTagEntity(String hashTagName) {
         this.hashTagName = hashTagName;
     }

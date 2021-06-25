@@ -31,7 +31,13 @@ public class NoteEntity {
     public NoteEntity() {
     }
 
-
+    public NoteEntity(Long id, String title, String noteText, Date createDate, Set<HashTagEntity> tags) {
+        this.id = id;
+        this.title = title;
+        this.noteText = noteText;
+        this.createDate = createDate;
+        this.tags = tags;
+    }
 
 
     public Long getId() {
