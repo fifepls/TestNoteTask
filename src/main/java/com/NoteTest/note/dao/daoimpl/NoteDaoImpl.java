@@ -14,18 +14,19 @@ import java.util.Set;
 @Component
 public class NoteDaoImpl implements NoteDao {
     @Override
-    public Long addNote(String noteTitle, String noteText, Date date, Set<HashTagEntity> tags) {
+    public NoteEntity addNote(String noteTitle, String noteText, Set<HashTagEntity> tags) {
         NoteEntity noteEntity = new NoteEntity();
         Session session = HibernateUtil.getSession();
         session.beginTransaction();
         noteEntity.setTitle(noteTitle);
         noteEntity.setNoteText(noteText);
         noteEntity.setTags(tags);
-        noteEntity.setCreateDate(date);
+        noteEntity.setCreateDate(new Date());
         Long savedId =(Long) session.save(noteEntity);
+        noteEntity.setId(savedId);
         session.getTransaction().commit();
         session.close();
-        return savedId;
+        return noteEntity;
     }
 
     @Override

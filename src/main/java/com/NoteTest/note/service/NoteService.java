@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 public interface NoteService {
-    public void addNote(String noteTitle, String noteText, Set<HashTagEntity> tags);
+    public NoteEntity addNote(String noteTitle, String noteText, Set<HashTagEntity> tags);
     public void removeNote(Long noteId);
     public void updateNote(Long noteId, String noteTitle, String noteText, Set<HashTagEntity> tags);
     public List<NoteEntity> getNotes();
