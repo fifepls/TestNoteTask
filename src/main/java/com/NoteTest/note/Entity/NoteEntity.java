@@ -14,6 +14,7 @@ public class NoteEntity {
 
     private String title;
 
+    @Column(length = 1000)
     private String noteText;
 
     private Date createDate;
