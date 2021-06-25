@@ -24,6 +24,10 @@ public class HashTagEntity {
     public HashTagEntity() {
     }
 
+    public HashTagEntity(String hashTagName) {
+        this.hashTagName = hashTagName;
+    }
+
     public Long getId() {
         return id;
     }

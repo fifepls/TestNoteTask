@@ -1,6 +1,7 @@
 package com.NoteTest.note.Entity;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.Set;
 
 @Entity
@@ -15,7 +16,7 @@ public class NoteEntity {
 
     private String noteText;
 
-    private String createDate;
+    private Date createDate;
 
     @Column(name = "tags")
     @ManyToMany(cascade = CascadeType.ALL)
@@ -23,11 +24,15 @@ public class NoteEntity {
             joinColumns = @JoinColumn(name = "note_id"),
             inverseJoinColumns = @JoinColumn(name = "tag_id")
     )
+
     private Set<HashTagEntity> tags;
 
 
     public NoteEntity() {
     }
+
+
+
 
     public Long getId() {
         return id;
@@ -53,11 +58,11 @@ public class NoteEntity {
         this.noteText = noteText;
     }
 
-    public String getCreateDate() {
+    public Date getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(String createDate) {
+    public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
 
