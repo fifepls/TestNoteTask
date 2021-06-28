@@ -1,6 +1,7 @@
 package com.NoteTest.note.Entity;
 
 import javax.persistence.*;
+import java.util.Collections;
 import java.util.Date;
 import java.util.Set;
 
@@ -79,5 +80,15 @@ public class NoteEntity {
 
     public void setTags(Set<HashTagEntity> tags) {
         this.tags = tags;
+    }
+
+    public static NoteEntity getDefaultNote(){
+        NoteEntity noteEntity = new NoteEntity();
+        noteEntity.setId(-1L);
+        noteEntity.setNoteText("default");
+        noteEntity.setTitle("default");
+        noteEntity.setCreateDate(new Date());
+        noteEntity.setTags(Collections.emptySet());
+        return noteEntity;
     }
 }

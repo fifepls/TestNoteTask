@@ -4,6 +4,7 @@ import com.NoteTest.note.Entity.HashTagEntity;
 import com.NoteTest.note.Entity.NoteEntity;
 import com.NoteTest.note.dao.HashTagDao;
 import com.NoteTest.note.dao.NoteDao;
+import com.NoteTest.note.dao.exceptions.DAOException;
 import com.NoteTest.note.service.NoteService;
 import com.NoteTest.note.util.NoteDateComparator;
 import com.NoteTest.note.util.NoteHashTagSorter;
@@ -43,7 +44,7 @@ class NoteServiceImplTest {
     private HashTagDao hashTagDao;
 
     @Test
-    void addNote() {
+    void addNote() throws DAOException {
         String title = "test title";
         String text = "test text";
         Set<HashTagEntity> tags = Set.of(new HashTagEntity("tag1"),new HashTagEntity("tag2"));
@@ -63,7 +64,7 @@ class NoteServiceImplTest {
     }
 
     @Test
-    void updateNote() {
+    void updateNote() throws DAOException {
         Long id = 1L;
         String title = "test title";
         String text = "test text";
@@ -81,24 +82,24 @@ class NoteServiceImplTest {
     }
 
     @Test
-    void getNotesSortByDate() {
+    void getNotesSortByDate() throws DAOException {
         noteService.getNotes();
         Mockito.verify(noteDao,Mockito.times(1)).getNotes();
     }
 
     @Test
-    void getNotes() {
+    void getNotes() throws DAOException {
         noteService.getNotes();
         Mockito.verify(noteDao,Mockito.times(1)).getNotes();
     }
 
     @Test
-    void getNotesThatContainsWord() {
+    void getNotesThatContainsWord() throws DAOException {
         Mockito.verify(noteDao,Mockito.times(1)).getNotes();
     }
 
     @Test
-    void getNotesSortByTags() {
+    void getNotesSortByTags() throws DAOException {
         noteService.getNotes();
         Mockito.verify(noteDao,Mockito.times(1)).getNotes();
     }
